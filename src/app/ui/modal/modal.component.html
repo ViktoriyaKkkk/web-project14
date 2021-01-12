@@ -1,0 +1,43 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editWorkerForm">
+      <div class="form-group">
+        <div class="form-block mb-2">
+          <input formControlName="newName" type="text" class="form-control" placeholder="name">
+          <div class="alert alert-danger"
+            *ngIf="editWorkerForm.controls['newName'].invalid && editWorkerForm.controls['newName'].touched">
+            Enter name
+          </div>
+        </div>
+        <div class="form-block mb-2">
+          <input formControlName="newSurname" type="text" class="form-control" placeholder="name">
+          <div class="alert alert-danger"
+            *ngIf="editWorkerForm.controls['newSurname'].invalid && editWorkerForm.controls['newSurname'].touched">
+            Enter surname
+          </div>
+        </div>
+        <div class="form-block">
+          <input formControlName="newNumber" type="text" class="form-control" placeholder="tel"
+            [textMask]="{mask: numberMask}">
+          <div class="alert alert-danger"
+            *ngIf="editWorkerForm.controls['newNumber'].invalid && editWorkerForm.controls['newNumber'].touched">
+            Enter num
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-warning" [disabled]="editWorkerForm.invalid"
+      (click)="close(modal)">Сохранить</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-sm btn-outline-warning mt-2" (click)="open(content)">Изменить</button>

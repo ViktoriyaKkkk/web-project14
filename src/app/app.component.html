@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{title}}</h1>
+    </div>
+  </div>
+  <app-addform-worker (addWorker)="onAddWorker($event)"></app-addform-worker>
+  <app-table-wokers 
+  [title]="'Программисты'"
+  [workers]="getByType(myWokerType.programmer)"
+  (deleteWorker)="onDeleteWorker($event)"
+  (editWorker)="onEditWorker($event)"
+  ></app-table-wokers>
+  <app-table-wokers 
+  [title]="'Дизайнеры'"
+  [workers]="getByType(myWokerType.designer)"
+  (deleteWorker)="onDeleteWorker($event)"
+  (editWorker)="onEditWorker($event)"
+  ></app-table-wokers>
+  <app-table-wokers 
+  [title]="'Копирайтеры'"
+  [workers]="getByType(myWokerType.copywritter)"
+  (deleteWorker)="onDeleteWorker($event)"
+  (editWorker)="onEditWorker($event)"
+  ></app-table-wokers>
+  <app-table-wokers 
+  [title]="'Менеджеры'"
+  [workers]="getByType(myWokerType.manager)"
+  (deleteWorker)="onDeleteWorker($event)"
+  (editWorker)="onEditWorker($event)"
+  ></app-table-wokers>
+</div>

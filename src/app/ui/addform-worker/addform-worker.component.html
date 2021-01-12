@@ -1,0 +1,61 @@
+
+<form action="" class="row mb-4 needs-vidation"[formGroup]="addWorkerForm" novalidate>
+  <div class="col-12">
+    <h5>Добавить участников</h5>
+  </div>
+
+  <div class="col-4">
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      placeholder="Имя"
+    >
+    <div class="alert alert-danger"
+      *ngIf="addWorkerForm.controls['name'].invalid && addWorkerForm.controls['name'].touched">
+      Введите имя
+    </div>
+  </div>
+  
+  <div class="col-4">
+    <input
+      formControlName="surname"
+      type="text"
+      class="form-control"
+      placeholder="Фамилия"
+    >
+    <div class="alert alert-danger"
+      *ngIf="addWorkerForm.controls['surname'].invalid && addWorkerForm.controls['surname'].touched">
+      Введите фамилию
+    </div>
+  </div>
+
+  <div class="col-4">
+    <select class="form-control" formControlName="type">
+      <option [ngValue]="myWorkerType.programmer">Программист</option>
+      <option [ngValue]="myWorkerType.designer">Дизайнер</option>
+      <option [ngValue]="myWorkerType.copywritter">Копирайтер</option>
+      <option [ngValue]="myWorkerType.manager">Менеджер</option>
+    </select>
+  </div>
+
+  <div class="col-4 mt-2">
+    <input
+      formControlName="number"
+      type="tel"
+      class="form-control"
+      placeholder="Номер"
+      [textMask]="{mask: numberMask}"
+    >
+    <div class="alert alert-danger"
+      *ngIf="addWorkerForm.controls['number'].invalid && addWorkerForm.controls['number'].touched">
+      Введите номер
+    </div>
+    <div class="col-2">
+      
+    </div>
+    <button class="btn btn-outline-primary btn-sm mt-2" [disabled]="addWorkerForm.invalid" (click)="onAddWorker()">Добавить</button>
+  </div>
+  
+
+</form>
